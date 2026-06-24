@@ -1,5 +1,6 @@
 const categories = ["Pizza", "Burgers", "Wraps", "Sides", "Drinks", "Desserts"];
 
+import { menuItems } from "@/data/menu";
 export default function Home() {
   return (
       <main>
@@ -32,7 +33,15 @@ export default function Home() {
 
         <section>
           <h2>Popular Pizzas</h2>
-          <p>Pizza menu will come here next.</p>
+            {menuItems.map((item) => (
+                <div key={item.id}>
+                    <h3>{item.name}</h3>
+                    <p>{item.description}</p>
+                    <strong>£{item.price}</strong>
+                    <br />
+                    <button>Add to Cart</button>
+                </div>
+            ))}
         </section>
       </main>
   );
